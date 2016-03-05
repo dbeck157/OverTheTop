@@ -17,6 +17,6 @@ public class HealthPack : PickUps {
 
     void HealHealth()
     {
-        // Heal who ever picks up kit
+        // Heal whoever picks up kit
     }
 }
