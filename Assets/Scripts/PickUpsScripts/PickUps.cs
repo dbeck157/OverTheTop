@@ -3,17 +3,22 @@ using System.Collections;
 
 public class PickUps : MonoBehaviour {
 
+    public float rotationSpeed = 1; // Rotates the pickup
+
     public Transform PlayerReference;
     public float pickUpDistance = 1;
     public bool forcePickUp = false;
+
 	// Use this for initialization
 	void Start () {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () 
+    public void Update() 
     {
+        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+
         if (CanPickUp())// If player is close display pickup key to pick up
         {
             DisplayPickUpInformation(); // Displays pickup information
@@ -36,7 +41,7 @@ public class PickUps : MonoBehaviour {
         Debug.Log("Press E to pickup");
     }
 
-    void PickUp()
+    protected virtual void PickUp()
     {
         Debug.Log("Picked up... sorta");    
     }
@@ -44,11 +49,9 @@ public class PickUps : MonoBehaviour {
     void Drop()
     {
         // If items needs to be dropped
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            // If the player wants to drop the item?
+            // If the player wants to drop the item and we want to let him choose too?
         }
     }
-
-
 }
