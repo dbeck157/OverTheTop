@@ -3,12 +3,13 @@ using System.Collections;
 
 public class WeaponPickUp : PickUps {
 
-    enum WeaponType { NormalWeapon, GrenadeLauncher, Sword}
-    WeaponType weaponType = WeaponType.NormalWeapon;
+    enum WeaponType { NormalWeapon, GrenadeLauncher, Sword, MachinePistol}
+    WeaponType weaponType = WeaponType.MachinePistol;
 
-    public float rateOfFire;
-    public float weaponPower;
-    public float weaponRange;
+    //public float rateOfFire;
+    //public float weaponPower;
+    //public float weaponRange;
+    public GameObject pickUpWeaponType;
 
 
 	// Use this for initialization
@@ -16,11 +17,13 @@ public class WeaponPickUp : PickUps {
         switch (weaponType)
         {
             case WeaponType.NormalWeapon:
-                
                 break;
             case WeaponType.GrenadeLauncher:
                 break;
             case WeaponType.Sword:
+                break;
+            case WeaponType.MachinePistol:
+                //pickUpWeaponType = GameObject.Find("MachinePistol");
                 break;
             default:
                 Debug.Log("Someone broke the weapon!");
@@ -36,6 +39,7 @@ public class WeaponPickUp : PickUps {
     protected override void PickUp() // Inherits from PickUps
     {
         // Send pick up information to player here
+        base.PlayerReference.GetComponent<PlayerWeaponManagement>().ChangeWeapon(pickUpWeaponType);
         Debug.Log("Picked up a " + weaponType.ToString());
     }
 }

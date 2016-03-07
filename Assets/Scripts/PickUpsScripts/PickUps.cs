@@ -36,7 +36,7 @@ public class PickUps : MonoBehaviour {
         return distance < pickUpDistance;
     }
 
-    void DisplayPickUpInformation()
+    protected virtual void DisplayPickUpInformation()
     {
         Debug.Log("Press E to pickup");
     }
@@ -46,7 +46,7 @@ public class PickUps : MonoBehaviour {
         Debug.Log("Picked up... sorta");    
     }
 
-    void Drop()
+    protected virtual void Drop()
     {
         // If items needs to be dropped
         if (Input.GetKeyDown(KeyCode.F))
