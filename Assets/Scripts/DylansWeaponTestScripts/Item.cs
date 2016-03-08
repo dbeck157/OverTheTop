@@ -25,7 +25,7 @@ public class Item : MonoBehaviour {
             PickUp();
         }
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Drop();
         }
